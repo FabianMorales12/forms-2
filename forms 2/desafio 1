@@ -1,0 +1,28 @@
+using System;
+using System.Windows.Forms;
+
+namespace CalculadoraCuotasPrestamo
+{
+    public partial class CalculadoraCuotasPrestamoForm : Form
+    {
+        public CalculadoraCuotasPrestamoForm()
+        {
+            InitializeComponent();
+        }
+
+        private void CalcularButton_Click(object sender, EventArgs e)
+        {
+          
+            double montoPrestamo = Convert.ToDouble(montoPrestamoTextBox.Text);
+            double tasaInteresAnual = Convert.ToDouble(tasaInteresTextBox.Text) / 100; 
+            int periodoMeses = Convert.ToInt32(periodoTextBox.Text);
+
+            
+            double tasaInteresMensual = tasaInteresAnual / 12; 
+            double cuotaMensual = montoPrestamo * (tasaInteresMensual / (1 - Math.Pow(1 + tasaInteresMensual, -periodoMeses)));
+
+            a
+            resultadoLabel.Text = "Cuota mensual: " + cuotaMensual.ToString("C2");
+        }
+    }
+}

@@ -1,0 +1,27 @@
+using System;
+using System.Windows.Forms;
+
+namespace CalculadoraAhorroPlazoFijo
+{
+    public partial class CalculadoraAhorroPlazoFijoForm : Form
+    {
+        public CalculadoraAhorroPlazoFijoForm()
+        {
+            InitializeComponent();
+        }
+
+        private void CalcularButton_Click(object sender, EventArgs e)
+        {
+        
+            double montoInicial = Convert.ToDouble(montoInicialTextBox.Text);
+            double tasaInteresAnual = Convert.ToDouble(tasaInteresTextBox.Text) / 100; 
+            int periodoAnios = Convert.ToInt32(periodoTextBox.Text);
+
+            
+            double capitalFinal = montoInicial * Math.Pow(1 + tasaInteresAnual, periodoAnios);
+
+            
+            resultadoLabel.Text = "Capital final: " + capitalFinal.ToString("C2");
+        }
+    }
+}
